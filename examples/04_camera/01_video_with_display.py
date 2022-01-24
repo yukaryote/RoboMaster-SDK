@@ -15,6 +15,8 @@
 
 
 import time
+import rospy
+
 from robomaster import robot
 from robomaster import camera
 
