@@ -50,8 +50,12 @@ class ImuImagePub():
         imu_msg.header.stamp = rospy.Time.now()
         imu_msg.header.frame_id = "~base_link"
         imu_msg.linear_acceleration = linear_acc
+        imu_msg.linear_acceleration_covariance[0], imu_msg.linear_acceleration_covariance[4], imu_msg.linear_acceleration_covariance[8] = 0.00017**2, 0.00017**2, 0.00017**2 
         imu_msg.orientation = orientation
+        imu_msg.orientation_covariance[0], imu_msg.orientation_covariance[4], imu_msg.orientation_covariance[8] = 0.00017**2, 0.00017**2, 0.00017**2 
         imu_msg.angular_velocity = angular_velocity
+        imu_msg.angular_velocity_covariance[0], imu_msg.angular_velocity_covariance[4], imu_msg.angular_velocity_covariance[8] = 0.00017**2, 0.00017**2, 0.00017**2 
+
 
         self.img_pub.publish(image_msg)
         self.imu_pub.publish(imu_msg)
